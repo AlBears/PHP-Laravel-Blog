@@ -1,7 +1,7 @@
 @extends('layouts.admin-master')
 
 @section('styles')
-  <link rel="stylesheet" type="text/css" href="{{ URL::secure('css/form.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ URL::to('css/form.css') }}">
 @endsection
 
 @section('content')
@@ -11,12 +11,12 @@
 
       <div class="input-group">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title">
+        <input type="text" name="title" id="title" {{ $errors->has('title') ? 'class=has-error' : '' }} value="{{ Request::old('title') }}">
       </div>
 
       <div class="input-group">
         <label for="author">Author</label>
-        <input type="text" name="author" id="author">
+        <input type="text" name="author" id="author" {{ $errors->has('author') ? 'class=has-error' : '' }} value="{{ Request::old('author') }}" />
       </div>
 
       <div class="input-group">
@@ -34,7 +34,7 @@
 
       <div class="input-group">
         <label for="body">Body</label>
-        <textarea name="body" id="body" rows="12"></textarea>
+        <textarea name="body" id="body" rows="12" {{ $errors->has('body') ? 'class=has-error' : '' }}>{{ Request::old('body') }}</textarea>
       </div>
 
       <button type="submit" class="btn">Create Post</button>
