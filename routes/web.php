@@ -11,7 +11,7 @@ Route::group(['middleware' => ['web']], function() {
     'as' => 'blog.index'
   ]);
 
-  Route::get('/blog/{post_id}', [
+  Route::get('/blog/{post_id}&{end}', [
     'uses' => 'PostController@getSinglePost',
     'as' => 'blog.single'
   ]);
@@ -37,6 +37,11 @@ Route::group(['middleware' => ['web']], function() {
     Route::get('/blog/posts', [
       'uses' => 'PostController@getPostIndex',
       'as' => 'admin.blog.index'
+    ]);
+
+    Route::get('/blog/post/{post_id}&{end}', [
+      'uses' => 'PostController@getSinglePost',
+      'as' => 'admin.blog.post'
     ]);
 
     Route::get('/blog/posts/create', [
