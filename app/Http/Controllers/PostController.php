@@ -10,7 +10,9 @@ class PostController extends Controller
 {
     public function getBlogIndex()
     {
-      return view('frontend.blog.index');
+      //we need to fetch posts
+      $posts = Post::paginate(5);
+      return view('frontend.blog.index', ['posts' => $posts]);
     }
 
     public function getSinglePost($post_id, $end = 'frontend')
