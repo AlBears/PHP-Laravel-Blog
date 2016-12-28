@@ -18,6 +18,12 @@ class PostController extends Controller
       return view('frontend.blog.index', ['posts' => $posts]);
     }
 
+    public function getPostIndex()
+    {
+      $posts = Post::paginate(5);
+      return view('admin.blog.index', ['posts' => $posts]);
+    }
+
     public function getSinglePost($post_id, $end = 'frontend')
     {
       return view($end .'.blog.single');
