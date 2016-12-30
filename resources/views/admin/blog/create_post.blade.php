@@ -22,9 +22,9 @@
       <div class="input-group">
         <label for="category_select">Add Categories</label>
         <select name="category_select" id="category_select">
-          <!-- foreach loop to output categories -->
-          <option value="Dummy Category ID">Dummy category</option>
-        </select>
+          @foreach($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+          @endforeach</select>
         <button type="button" class="btn">Add Category</button>
         <div class="added-categories">
           <ul></ul>
@@ -45,5 +45,5 @@
 @endsection
 
 @section('scripts')
-  <script type="text/javascript" src="{{ URL::secure('js/posts.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::to('js/posts.js') }}"></script>
 @endsection
