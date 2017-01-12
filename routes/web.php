@@ -26,6 +26,11 @@ Route::group(['middleware' => ['web']], function() {
     'as' => 'contact'
   ]);
 
+  Route::post('/contact/sendMail', [
+    'uses' => 'ContactMessageController@postSendMessage',
+    'as' => 'contact.send'
+  ]);
+
   Route::group([
     'prefix' => '/admin'
   ], function() {
