@@ -29,7 +29,7 @@ class SendConfirmation
     {
         $contact_message = $event->message;
         Mail::send('email.contact-message-confirmation', ['contact_message' => $contact_message], function($m) use ($contact_message){
-          $m->from('example.com', 'Laravel course');
+          $m->from('mail@example.com', 'Laravel course');
           $m->to($contact_message->email, $contact_message->sender);
           $m->subject('We received your message');
         });
