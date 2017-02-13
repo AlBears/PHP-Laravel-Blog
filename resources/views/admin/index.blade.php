@@ -57,14 +57,17 @@
       </header>
       <section>
         <ul>
-          <!-- if no messages -->
+
+          @if (count($contact_messages) == 0)
           <li>No Messages</li>
-          <!-- if messages -->
+          @endif
+
+          @foreach ($contact_messages as $contact_message)
           <li>
-            <article data-message="Body" data-id="ID">
+            <article data-message="{{ $contact_message->body }}" data-id="{{ $contact_message->id }}">
               <div class="message-info">
-                <h3>Message Subject</h3>
-                <span class="info">Sender: ... | Date</span>
+                <h3>{{ $contact_message->subject }}</h3>
+                <span class="info">Sender: {{ $contact_message->sender }} | {{ $contact_message->created_at }}</span>
               </div>
               <div class="edit">
                 <nav>
@@ -76,6 +79,10 @@
               </div>
             </article>
           </li>
+          @endforeach
+
+
+
         </ul>
       </section>
     </div>

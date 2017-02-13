@@ -33,4 +33,11 @@ class ContactMessageController extends Controller
       return redirect()->route('contact')->with(['success' => 'Message successfully sent!']);
 
     }
+
+    public function getContactMessageIndex()
+    {
+      $contact_messages = ContactMessage::orderBy('created_at', 'desc')->paginate(5);
+
+      return view('admin.other.contact_messages', compact('contact_messages'));
+    }
 }
