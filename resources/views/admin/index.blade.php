@@ -64,7 +64,7 @@
 
           @foreach ($contact_messages as $contact_message)
           <li>
-            <article data-message="{{ $contact_message->body }}" data-id="{{ $contact_message->id }}">
+            <article data-message="{{ $contact_message->body }}" data-id="{{ $contact_message->id }}" class="contact-message">
               <div class="message-info">
                 <h3>{{ $contact_message->subject }}</h3>
                 <span class="info">Sender: {{ $contact_message->sender }} | {{ $contact_message->created_at }}</span>
@@ -97,6 +97,6 @@
   <script type="text/javascript">
     var token = '{{ Session::token() }}';
   </script>
-  <script type="text/javascript" src="{{ URL::secure('js/modal.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::secure('js/contact-messages.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::to('js/modal.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::to('js/contact_messages.js') }}"></script>
 @endsection

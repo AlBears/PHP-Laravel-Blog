@@ -40,12 +40,15 @@
     </section>
   @endif
 </div>
+<div class="modal" id="contact-message-info">
+  <button class="btn" id="modal-close">Close</button>
+</div>
 @endsection
 
 @section('scripts')
   <script type="text/javascript">
     var token = "{{ Session::token() }}";
   </script>
-  <script type="text/javascript" src="{{ URL::secure('src/js/modal.js') }}"></script>
-  <script type="text/javascript" src="{{ URL::secure('src/js/contact_messages.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::to('js/modal.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::to('js/contact_messages.js') }}"></script>
 @endsection
